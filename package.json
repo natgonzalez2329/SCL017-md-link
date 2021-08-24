@@ -1,4 +1,32 @@
 {
   "name": "md-links",
-  "version": "0.1.0"
+  "version": "1.0.0",
+  "description": "Librería Markdown Links",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/natgonzalez2329/SCL017-md-link.git"
+  },
+  "keywords": [
+    "md",
+    "markdown",
+    "links",
+    "URL",
+    "HTTP"
+  ],
+  "author": "natasha gonzalez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/natgonzalez2329/SCL017-md-link/issues"
+  },
+  "homepage": "https://github.com/natgonzalez2329/SCL017-md-link#readme",
+  "dependencies": {
+    "jest": "^27.0.6"
+  }
 }
