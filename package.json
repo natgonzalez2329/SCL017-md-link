@@ -27,7 +27,8 @@
   },
   "homepage": "https://github.com/natgonzalez2329/SCL017-md-link#readme",
   "dependencies": {
+    "axios": "^0.21.1",
     "jest": "^27.0.6",
-    "marked": "^3.0.2"
+    "markdown-link-extractor": "^1.3.0"
   }
 }
