@@ -4,8 +4,12 @@ const markdownLinkExtractor = require('markdown-link-extractor');
 const axios = require('axios');
 
 const isFolder = (fullPath) => {
-    const pathExists = fs.statSync(fullPath);
-    return pathExists && pathExists.isDirectory();
+    try {
+        const pathExists = fs.statSync(fullPath);
+        return pathExists && pathExists.isDirectory();
+    } catch (e) {
+        return false;
+    }
 };
 
 const folderReader = (pathFolder) => {
@@ -112,7 +116,7 @@ const mdlinksFinder = (fullPath, options = { validate: false, stats: false }) =>
                 })
             } else if (isFolder(fullPath)) {
                 folderReader(fullPath, options).then(fileData => {
-                  const pathJoin = path.join(fullPath +'\\'+ fileData);
+                  const pathJoin = path.join(`${fullPath}${path.sep}${fileData}`);
                     resolve(mdlinksFinder(pathJoin, options));
                 }).catch(e => console.log(e));
             }
@@ -121,6 +125,14 @@ const mdlinksFinder = (fullPath, options = { validate: false, stats: false }) =>
         }
     });
 };
-// mdlinksFinder('./README.md', { validate: true, stats: true }).then(r => console.log(r)).catch(e => console.log(e));
+/* mdlinksFinder('./README.md', { validate: true, stats: true }).then(r => console.log(r)).catch(e => console.log(e)); */
 
-module.exports = mdlinksFinder;
+module.exports = {
+    mdlinksFinder,
+    isFolder,
+    folderReader,
+    isFile,
+    fileReader,
+    statsLinks,
+    linkSearcher,
+};
