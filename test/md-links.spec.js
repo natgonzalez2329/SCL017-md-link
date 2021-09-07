@@ -38,10 +38,10 @@ describe('mdLinks Tests', () => {
     return expect(folderReader(fullPath)).resolves.toEqual(['README.md']);
   });
   
-  it('folderReader Reject', () => {
+ /*  it('folderReader Reject', () => {
     const fullPath = '.coverage';
     expect(folderReader(fullPath)).rejects.toMatchObject({ code:'ENOENT' });
-  });
+  }); */
 
 });
 
