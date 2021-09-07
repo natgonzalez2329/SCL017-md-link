@@ -1,13 +1,13 @@
 {
   "name": "md-link-validator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Librería Markdown Links",
   "main": "index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test":  "jest --verbose --coverage",
+    "test": "jest --verbose --coverage",
     "coverage": "jest --coverage"
   },
   "repository": {
