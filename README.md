@@ -10,7 +10,7 @@
 
 ## 1. Markdown Links
 
-Markdown Links es una libreria  que extrae y valida los links de los archivos  con formato md(markdown). 
+Markdown Links es una librería  que extrae y valida los links de los archivos  con formato md(markdown). 
 ## 2. Instalación
 
 Requiere de instalación previa de Node.js.

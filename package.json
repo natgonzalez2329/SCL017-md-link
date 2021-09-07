@@ -1,5 +1,5 @@
 {
-  "name": "mdlinks-validator",
+  "name": "mdlink-validator",
   "version": "1.0.0",
   "description": "Librería Markdown Links",
   "main": "index.js",
