@@ -1,6 +1,6 @@
 {
-  "name": "md-link-validator",
-  "version": "1.0.1",
+  "name": "mdlinks-validator",
+  "version": "1.0.0",
   "description": "Librería Markdown Links",
   "main": "index.js",
   "directories": {
