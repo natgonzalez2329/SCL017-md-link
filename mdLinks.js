@@ -119,6 +119,8 @@ const mdlinksFinder = (fullPath, options = { validate: false, stats: false }) =>
                   const pathJoin = path.join(`${fullPath}${path.sep}${fileData}`);
                     resolve(mdlinksFinder(pathJoin, options));
                 }).catch(e => console.log(e));
+            } else {
+                resolve('Error: No existe ningun archivo formato md');
             }
         } catch (error) {
             reject(error);

@@ -2,6 +2,124 @@
 
 ## Índice
 
+* [1. Markdown Links](#1-markdown-links)
+* [2. Instalación](#2-instalacion)
+* [3. Guía de uso](#3-guia-de-uso)
+
+***
+
+## 1. Markdown Links
+
+Markdown Links es una libreria  que extrae y valida los links de los archivos  con formato md(markdown). 
+## 2. Instalación
+
+Requiere de instalación previa de Node.js.
+En el terminal colocar el siguiente comando:
+
+npm i -g md-link-validator
+## 3. Guía de uso
+
+## API
+![md-links](https://lucid.app/publicSegments/view/39fbe985-a278-4e7d-b2a0-786b003d780c/image.png)
+
+#### `mdLinkValidator(path, options)`
+
+##### Argumentos
+
+* `path`: Ruta **absoluta** o **relativa** al **archivo** o **directorio**.
+* `options`: Un objeto con **únicamente** la siguiente propiedad:
+  - `validate`: Booleano que determina si se desea validar los links
+    encontrados.
+  - `stats`: Booleano que especifica las estadísticas de los links.
+
+
+## CLI
+
+```plain
+$ md-link-validator <path-to-file> [options]
+```
+### Options
+##### `--validate`
+
+Si pasamos la opción `--validate`, el módulo hace una petición HTTP que averigua si el link funciona o no. Si el link resulta en una redirección a una
+URL que responde ok, entonces consideraremos el link como ok.
+
+Por ejemplo:
+
+```sh
+$ md-link-validator ./some/example.md --validate
+href: URL encontrada.
+text: Texto que aparecía dentro del link (<a>).
+file: Ruta del archivo donde se encontró el link.
+status: Código de respuesta HTTP.
+ok: Mensaje fail en caso de fallo u ok en caso de éxito.
+```
+
+Vemos que el _output_ en este caso incluye la palabra `ok` o `fail` después de
+la URL, así como el status de la respuesta recibida a la petición HTTP a dicha
+URL.
+
+##### `--stats`
+
+Si pasamos la opción `--stats` el output (salida) será un texto con estadísticas
+básicas sobre los links.
+
+```sh
+$ md-link-validator ./some/example.md --stats
+Total: 3
+Unique: 3
+```
+
+También podemos combinar `--stats` y `--validate` para obtener estadísticas que
+necesiten de los resultados de la validación.
+
+```sh
+$ md-link-validator ./some/example.md --stats --validate
+Total: 3
+Unique: 3
+Broken: 1
+```
+
+
+## Librería
+
+```js
+
+const mdLinkValidator = require('md-link-validator');
+
+mdLinkValidator('./text.md')
+  .then(results => {
+    // results => [{ href, text, line, file }]
+  })
+  .catch(error => {
+    console.log(error.message);
+  });
+
+mdLinkValidator('./folder/text.md', { validate: true })
+  .then(results => {
+    // results => [{ href, text, line, file, status, ok, originalHref }]
+  })
+  .catch(error => {
+    console.log(error.message);
+  });
+
+mdLinkValidator('./folder/dir')
+  .then(results => {
+    // results => [{ href, text, file, status, ok, originalHref }]
+  })
+  .catch(error => {
+    console.log(error.message);
+  });
+
+
+```
+
+
+<details>
+# Markdown Links
+
+## Índice
+
 * [1. Preámbulo](#1-preámbulo)
 * [2. Resumen del proyecto](#2-resumen-del-proyecto)
 * [3. Objetivos de aprendizaje](#3-objetivos-de-aprendizaje)
@@ -531,3 +649,5 @@ cuenta utilizando **new Promise()**
 
 Es importante que sepas qué es un **callback** pues las
 promesas los utilizarán.
+
+</details>
